@@ -114,7 +114,7 @@
     (reset! artifacts (into @clojars-artifacts @maven-artifacts))
     (spit artifacts-file @artifacts)
     (alter-meta! artifacts update-in [:last-modified]
-                 (constantly (get-last-modified-from-file artifacts-file)))))
+                 (constantly (.getTime (java.util.Date.))))))
 
 (defn artifact-list
   [{:keys [force]}]
