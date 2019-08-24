@@ -22,7 +22,8 @@
   (with-redefs
    [artifacts/get-clojars-artifacts! (constantly clojars-artifacts)
     artifacts/get-mvn-artifacts! (constantly clojure-artifacts)
-    artifacts/get-mvn-versions! (constantly clojure-versions)]
+    artifacts/get-mvn-versions! (constantly clojure-versions)
+    spit (constantly nil)]
 
     (is (#'artifacts/stale-cache?))
 
